@@ -41,6 +41,50 @@ header h1 {
   font-style: italic;
 }
 
+body main {
+  display: flex;
+  flex-direction: column;
+}
+body main div.carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 7%;
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+body main div.carte h2 {
+  border-top: 1px solid #EF2A39;
+  font-family: poppins, sans-serif;
+}
+body main div.carte p.description {
+  text-align: center;
+}
+body main div.carte p.price {
+  font-family: poppins, sans-serif;
+}
+body main div.carte p.note {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+body main div.carte button.add {
+  margin-bottom: 10px;
+}
+body main div.carte button.categorie {
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: #EF2A39;
+  border: none;
+  outline: none;
+}
+
 footer {
   background-color: white;
   display: flex;
