@@ -54,4 +54,23 @@ for(i=0;i<table.length;i++){
     add.textContent='add';
     add.className='add';
     div.appendChild(add);
+
+    function addOrder(index) {
+        return function() {
+            const order = {
+                titre: table[index][1],
+                price: table[index][3],
+            };
+            tot.push(order);
+        };
+    }
+
+    div.addEventListener('click', addOrder(i));
 }
+
+
+document.addEventListener('keyup', event => {
+    if (event.code === 'Space') {
+        console.log(tot);
+    }
+})
