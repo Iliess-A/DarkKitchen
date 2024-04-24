@@ -74,3 +74,34 @@ document.addEventListener('keyup', event => {
         console.log(tot);
     }
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const allCheckbox = document.getElementById('all');
+    allCheckbox.checked = true;
+    filterCards();
+
+});
+
+const checkboxes = document.querySelectorAll('.category-checkbox');
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+    filterCards();
+    });
+});
+
+function filterCards() {
+    const checkedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.id);
+    const cards = document.querySelectorAll('.carte');
+    cards.forEach(card => {
+      const category = card.querySelector('.categorie').textContent;
+      if (checkedCategories.includes(category) || checkedCategories.includes('all')) {
+        card.style.visibility = 'visible';
+      } else {
+        card.style.visibility = 'collapse';
+      }
+    });
+}
+
+

@@ -108,6 +108,28 @@ body{
             }
             }
         }
+
+        .filter {
+            display: flex;
+            flex-direction:row;
+            justify-content: space-evenly;
+            margin-bottom: 5%;
+            
+            input {
+                display: none;
+
+                &:checked + label {
+                    img{
+                        filter: invert(100%) sepia(100%) saturate(3.5) hue-rotate(45deg);
+                    }
+                }
+            }
+
+            img {
+                width: 40%;
+                cursor: pointer;
+            }
+        }
     }
 }
 
