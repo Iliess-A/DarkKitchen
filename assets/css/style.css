@@ -119,4 +119,29 @@ footer .copyright p {
   font-family: poppins;
   font-weight: 300;
   font-size: 15px;
+}
+
+#cartIcon {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
+#openCartModal {
+  background-color: #EF2A39;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 100px;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  margin-left: 600px;
+  transform: translate(0px, -10px);
+}
+
+#openCartModal:hover {
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.313);
 }/*# sourceMappingURL=style.css.map */

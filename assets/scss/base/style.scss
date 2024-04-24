@@ -8,15 +8,15 @@ body {
     min-height: 100%;
     margin: 0;
     overflow-x: hidden;
-    background: rgb(255,147,155);
-    background: linear-gradient(153deg, rgba(255,147,155,1) 0%,  rgba(239,42,57,1) 67%);
+    background: rgb(255, 147, 155);
+    background: linear-gradient(153deg, rgba(255, 147, 155, 1) 0%, rgba(239, 42, 57, 1) 67%);
     background-repeat: no-repeat;
 }
 
 header {
 
     height: 250px;
-    
+
     .head {
         display: flex;
         justify-content: space-between;
@@ -51,68 +51,73 @@ header {
 
 //-------------------------------------------------------------------------------------------------------------- main div carte
 
-body{
-    main{
+body {
+    main {
         display: flex;
         flex-direction: column;
         margin-left: 5%;
         margin-right: 5%;
-        div{
+
+        div {
             width: 100%;
-            &.carte{
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 7%;
-            background-color: white;
-            margin-bottom: 20px;
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-            
-            h2{
-                border-top:1px solid #EF2A39;
-                font-family: poppins,sans-serif;
-            }
-            p{
-                &.description{
-                    text-align:center;
-                    max-width: 90% ;
-                }
-                &.price{
-                    font-family: poppins,sans-serif;
+
+            &.carte {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 7%;
+                background-color: white;
+                margin-bottom: 20px;
+                box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+                h2 {
+                    border-top: 1px solid #EF2A39;
+                    font-family: poppins, sans-serif;
                 }
 
-                &.note{
-                    position:absolute;
-                    bottom: 10px;
-                    left: 10px;
+                p {
+                    &.description {
+                        text-align: center;
+                        max-width: 90%;
+                    }
 
+                    &.price {
+                        font-family: poppins, sans-serif;
+                    }
+
+                    &.note {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 10px;
+
+                    }
                 }
-            }
-            
-            button{
-                &.add{
-                    margin-bottom:10px ;
+
+                button {
+                    &.add {
+                        margin-bottom: 10px;
+                    }
+
+                    &.categorie {
+                        position: absolute;
+                        bottom: 10px;
+                        right: 5px;
+                        margin-bottom: 10px;
+                        border-radius: 15px;
+                        background-color: #EF2A39;
+                        border: none;
+                        outline: none;
+                    }
                 }
-                &.categorie{
-                    position: absolute;
-                    bottom: 10px;
-                    right: 5px;
-                    margin-bottom: 10px;
-                    border-radius: 15px;
-                    background-color: #EF2A39;
-                    border:none;
-                    outline: none;
-                }
-            }
             }
         }
     }
 }
 
 //-------------------------------------------------------------------------------------------------------------- footer
-footer { 
+footer {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -135,6 +140,7 @@ footer {
         p {
 
             line-height: 10px;
+
             font : {
                 family: poppins;
                 weight: 300;
@@ -151,11 +157,39 @@ footer {
         p {
 
             line-height: 10px;
+
             font : {
                 family: poppins;
                 weight: 300;
                 size: 15px;
             }
-        }   
+        }
     }
+}
+
+//-----------------------------------------------
+
+#cartIcon {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+}
+
+#openCartModal {
+    background-color: #EF2A39;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    margin-left: 600px;
+    transform: translate(0px, -10px);
+}
+
+#openCartModal:hover {
+    cursor: pointer;
+    background-color: rgba(255, 0, 0, 0.313);
 }
