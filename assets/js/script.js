@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem('darkMode',null);
   }
 
-  if(darkMode === "active"){
+  if(darkMode === "active"){ 
     activeDarkMode();
   }
 
