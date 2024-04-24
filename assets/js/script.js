@@ -190,3 +190,27 @@ document.addEventListener("DOMContentLoaded", function () {
   })
   
 //----------------------------------------------------------------- filtre
+
+const checked_all=document.body.querySelector('#all');
+const checked_chicken=document.body.querySelector('#chicken');
+const checked_vegan=document.body.querySelector('#vegan');
+const checked_cheese=document.body.querySelector('#cheese');
+const checked_fries=document.body.querySelector('#fries');
+const checked_beef=document.body.querySelector('#beef');
+
+let display=document.body.querySelector("div.carte")
+
+let displayed = ()=>{
+
+  if (display.style.display === "none") {
+    display.style.display = "content";
+    console.log(display.style.display);
+  }else{
+    display.style.display = "none";
+    console.log(display.style.display);
+  }
+}
+
+checked_all.addEventListener('click',()=>{
+  displayed();
+})
