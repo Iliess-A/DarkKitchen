@@ -108,6 +108,27 @@ body{
             }
             }
         }
+
+        .filter {
+            display: flex;
+            flex-direction:row;
+            justify-content: space-evenly;
+            margin-bottom: 5%;
+            
+            input {
+                //display: none;
+
+                :checked + label::before {
+                    background-color: white;
+                }
+            }
+
+            img {
+                width: 40%;
+                cursor: pointer;
+                
+            }
+        }
     }
 }
 
@@ -159,3 +180,5 @@ footer {
         }   
     }
 }
+
+

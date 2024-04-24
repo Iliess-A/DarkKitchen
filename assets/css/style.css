@@ -89,6 +89,19 @@ body main div.carte button.categorie {
   border: none;
   outline: none;
 }
+body main .filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 5%;
+}
+body main .filter input :checked + label::before {
+  background-color: white;
+}
+body main .filter img {
+  width: 40%;
+  cursor: pointer;
+}
 
 footer {
   background-color: white;

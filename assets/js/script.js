@@ -74,3 +74,162 @@ document.addEventListener('keyup', event => {
         console.log(tot);
     }
 })
+
+
+
+
+
+/*const filter = document.querySelectorAll('.filter');
+const filterChildren = filter.children;
+
+const buttons = document.querySelectorAll('.head buttons');
+
+for (let button of buttons) {
+    button.addEventListener('click', clickOnButton)
+}
+
+const clickOnButton = (e) => {
+    e.target.style.backgroundColor = 'white';
+}*/
+
+
+
+
+
+
+/*const checkOne = document.getElementById("myCheckbox1").checked; 
+const checkTwo = document.getElementById("myCheckbox2").checked; 
+const checkThree = document.getElementById("myCheckbox3").checked; 
+const checkFour = document.getElementById("myCheckbox4").checked; 
+const checkFive = document.getElementById("myCheckbox5").checked;*/
+
+const newTable = []
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    for (i=0; i < table.length; i++ ) {
+        const checked = table[i][5];
+
+        switch (checked) {
+            case 'chicken' :
+                table[i][5].push();
+                
+            case 'beef' :
+                table[i][5].push();
+
+            case 'chicken' :
+                table[i][5].push();
+            
+        }
+    }
+}
+
+
+
+/*for (i=0; i < table.length; i++) {
+    if (checkOne == true) {
+        for (i=0; i < table.length; i++) {
+            const div =document.querySelector('.carte');
+            const divCateg = document.querySelector('.carte button .chicken')        
+            if (divCateg !== 'chicken') {
+                div.style.display = 'none';
+            }
+        }
+    }
+
+    if (checkTwo == true) {
+        for (i=0; i < table.length; i++) {
+            const div =document.querySelector('.carte');
+            const divCateg = document.querySelector('.carte button .beef')        
+            if (divCateg !== 'beef') {
+                div.style.display = 'none';
+            }
+        }
+    }
+
+    if (checkThree == true) {
+        for (i=0; i < table.length; i++) {
+            const div = body.querySelector('.carte');
+            const divCateg = document.querySelector('.carte button .cheese')        
+            if (divCateg !== 'cheese') {
+                div.style.display = 'none';
+            }
+        }
+    }
+
+    if (checkFour == true) {
+        for (i=0; i < table.length; i++) {
+            const div =document.querySelector('.carte');
+            const divCateg = document.querySelector('.carte button .vegan')        
+            if (divCateg !== 'vegan') {
+                div.style.display = 'none';
+            }
+        }
+    }
+
+    if (checkFive == true) {
+        for (i=0; i < table.length; i++) {
+            const div =document.querySelector('.carte');
+            const divCateg = document.querySelector('.carte button .fries')
+            
+            if (divCateg !== 'fries') {
+                div.style.display = 'none';
+            }
+        }
+    }
+} */
+
+/*document.addEventListener("DOMContentLoaded", function() {
+
+    const checkboxes = document.querySelectorAll('.filter checkbox')
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const category = this.value;
+            const cards = document.querySelectorAll('.carte')
+
+            cards.forEach(function(card) {
+                const categoryBtns = card.querySelectorAll('button .category')
+                let showCard = true;
+
+                categoryBtns.forEach(function(btn) {
+                    if(!btn.classList.contains(category) && checkbox.checked) {
+                        showCard = false;
+                    }
+                })
+                card.style.display = showCard ? 'block' : 'none';
+                console.log(showCard)
+            })
+        })
+    })
+})*/
+
+
+
+/*function change() {
+
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]'),
+        filtered = [];
+
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            filtered.push(checkbox.name);
+        }
+    });
+
+    let cards = document.querySelectorAll('.carte');
+
+    cards.forEach(card => {
+        if (
+            filtered.length === 0 
+            filtered.some(r => card.classList.contains(r)) 
+        ) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+} */
+
+
+//add event
