@@ -152,4 +152,40 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+  
+  //------------------------------------------------------darkmode
+  
+  let darkMode = localStorage.getItem('darkMode');
+  
+  const darkModeToggle = document.body.querySelector('#dark-mode-toggle');
 
+  const activeDarkMode = ()=>{
+    document.body.classList.add('darkmode');
+    localStorage.setItem('darkMode','active');
+
+  }
+
+  const disableDarkMode = ()=>{
+    document.body.classList.remove('darkmode');
+    localStorage.setItem('darkMode',null);
+  }
+
+  if(darkMode === "active"){
+    activeDarkMode();
+  }
+
+  darkModeToggle.addEventListener('click',()=>{
+    
+    darkMode=localStorage.getItem("darkMode");
+
+    if(darkMode !== 'active'){
+
+      activeDarkMode();
+      console.log(darkMode);
+    }else {
+      disableDarkMode();
+      console.log(darkMode);
+    }
+
+  })
+  
