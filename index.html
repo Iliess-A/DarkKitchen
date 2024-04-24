@@ -24,7 +24,29 @@
     </header>
 
     <main>
-        
+        <button id="openCartModal"><i id="cartIcon" class="fi fi-rr-shopping-cart"></i></button>
+    <!-- The Cart Modal -->
+<div id="cartModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="cartTitle">Your Cart</h2>
+      <ul id="cartItemsModal"></ul>
+      <p id="totalAmountModal"></p>
+      <button id="checkoutButton">Pay Now</button>
+      <div id="cart">
+        <ol id="cartItems"></ol>
+        <div id="order">
+          <!-- <p class="o" id="orderSummary">Order summary</p> -->
+          <p class="o" id="orderAmount">Order <p id="rightSide">0.00€</p></p>
+          <!-- <p class="o" id="taxes">Taxes <p id="rightSide">0.0€</p></p> -->
+          <p class="o" id="fees">Delivery fees <p id="rightSide">0.0€</p></p>
+          <!-- <p class="o" id="totalAmount">Total: 0.00€</p> -->
+          <p class="o" id="estimatedDelivery">Estimated delivery time: <p id="rightSide">0min</p></p>
+        </div>
+    </div>
+    </div>
+</div>
     </main>
 
     <footer>
@@ -51,6 +73,5 @@
 
     </footer>
 
-    <button id="openCartModal"><i id="cartIcon" class="fi fi-rr-shopping-cart"></i></button>
 </body>
 </html>

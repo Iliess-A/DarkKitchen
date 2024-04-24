@@ -53,6 +53,7 @@ header {
 
 body {
     main {
+        position: relative;
         display: flex;
         flex-direction: column;
         margin-left: 5%;
@@ -170,26 +171,167 @@ footer {
 //-----------------------------------------------
 
 #cartIcon {
+    // z-index: 2;
     display: flex;
+    position: absolute;
+    margin-top: 8px;
     justify-content: center;
     font-size: 30px;
     color: white;
 }
 
 #openCartModal {
+    display: flex;
+    justify-content: center;
     background-color: #EF2A39;
     width: 50px;
     height: 50px;
     border: none;
     border-radius: 100px;
-    z-index: -1;
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     bottom: 0;
-    margin-left: 600px;
-    transform: translate(0px, -10px);
+    right: 0;
+    margin-right: 35px;
+    // margin-left: 550px;
+    transform: translate(0px, -40px);
 }
 
 #openCartModal:hover {
     cursor: pointer;
     background-color: rgba(255, 0, 0, 0.313);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 40%;
+    right: 20%;
+    z-index: 1;
+    width: 350px;
+    height: 380px;
+    overflow: hidden;
+    // margin-top: 100px;
+    transform: translate(0px, -150px);
+    margin-left: 405px;
+    background-color: #EF2A39;
+    border-radius: 50px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.443);
+}
+
+/* Modal ContentBox */
+.modal-content {
+    // overflow: hidden;
+    font-family: poppins;
+    // position: absolute;
+    display: flex;
+    transform: translate(0px, -80px);
+    align-items: center;
+    padding: 20px;
+    color: white;
+    border: none;
+    width: 300px;
+    animation: fadeIn 0.3s ease
+}
+
+.cartTitle {
+    position: absolute;
+    display: flex;
+    width: 120px;
+    margin-top: 210px;
+    margin-left: 100px;
+    // transform: translate(85px, -240px);
+    font-weight: 300;
+    text-shadow: 50%;
+}
+
+#totalAmountModal {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    margin-top: 450px;
+    transform: translate(30px, 160px);
+    font-weight: 300;
+}
+
+#checkoutButton {
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 20px;
+    border: none;
+    margin-top: 740px;
+    margin-left: 185px;
+    // transform: translate(150px, 100px);
+    width: 95px;
+    height: 40px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.443);
+}
+
+#checkoutButton:hover {
+
+    cursor: pointer;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.close {
+    position: absolute;
+    z-index: 5;
+    color: #ffffff;
+    transform: translate(15px, -55px);
+    margin-left: 10px;
+    margin-top: 300px;
+    font-size: 28px;
+
+}
+
+.close:hover,
+.close:focus {
+    color: rgba(0, 0, 0, 0.413);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Additional styles for fade-in animation class */
+.modal-fade-in .modal-content {
+    animation: fadeIn 0.3s ease;
+}
+
+#cart {
+    font-size: 13px;
+    margin-top: 490px;
+    margin-left: 30px;
+    max-width: 400px;
+    position: fixed;
+    cursor: pointer;
+    z-index: 1;
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+
+}
+
+.o {
+    display: flex;
+
+}
+
+.cartItems {
+    width: 200px;
+
+}
+
+#rightSide {
+    margin-left: 210px;
+    transform: translate(0px, -30px);
 }

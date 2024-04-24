@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     // Mock data and add to cart functionality (for testing)
-    const addToCartButtons = document.querySelectorAll(".addToCartBtn");
+    const addToCartButtons = document.querySelectorAll(".addToCartButton");
     addToCartButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         const itemDescription = button.getAttribute("data-description");
