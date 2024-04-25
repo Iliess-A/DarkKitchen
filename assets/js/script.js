@@ -62,15 +62,29 @@ for(i=0;i<table.length;i++){
   //met le nom et le price apres un add dans un tableau.
   function addOrder(index) {
       return function() {
-          const order = {
-              titre: table[index][1],
-              price: table[index][3],
-          };
-          tot.push(order);
+        const order = {
+          titre: table[index][1],
+          price: table[index][3],
+          quantity: 1, // Ajoutez une propriété de quantité
+          get subtotal() {
+            return this.price * this.quantity; // Ajoutez une propriété de sous-total
+        },
       };
+      // Vérifiez si l'ordre existe déjà dans le tableau
+      const existingOrder = tot.find(o => o.titre === order.titre);
+      if (existingOrder) {
+          // Si l'ordre existe déjà, augmentez simplement la quantité
+          existingOrder.quantity++;
+      } else {
+          // Sinon, ajoutez l'ordre au tableau
+          tot.push(order);
+      }
+  };
   }
 
+  //ajoute l'élément au tab tot si on appuis sur add.
   div.addEventListener('click', addOrder(i));
+
 }
 //'espace'permet d'afficher le contenus du tableau apres chaque add.
 document.addEventListener('keyup', event => {
@@ -157,12 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
     cartItemsModal.innerHTML = "";
     tot.forEach(function (item) {
       const li = document.createElement("li");
-      li.textContent = item.titre + " -> " + item.price;
+      li.textContent = item.titre + " -> " +  item.subtotal;
       cartItemsModal.appendChild(li);
     });
-
-  //only show one ligne per title item and the quantity fo it
-   
 
     calculateTotalAmount();
     modal.style.display = "block"; // Display the modal
@@ -171,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to calculate and display total amount
   function calculateTotalAmount() {
     let total = tot.reduce((acc, item) => acc + parseFloat(item.price.replace(/,/g, ".")), 0);
-    totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
+totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
   }
 
   // Event listener for opening the cart modal
@@ -185,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for checkout button
   checkoutButton.addEventListener("click", function () {
-    if (cart.length > 0) {
+    if (tot.length > 0) {
       alert("Thank you for your order!");
       tot = []; // Clear the cart
       modal.style.display = "none"; // Hide the modal
