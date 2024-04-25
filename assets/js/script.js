@@ -90,14 +90,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkoutButton = modal.querySelector("#checkoutButton");
     //   const cbButton = document.getElementById("#cb");
   
-    let cart = [];
+  
   
     // Function to display cart items in the modal
     function displayCartInModal() {
+      // Function to display cart items in the modal
+    function displayCartInModal() {
       cartItemsModal.innerHTML = "";
-      cart.forEach(function (item) {
+      tot.forEach(function (item) {
         const li = document.createElement("li");
-        li.textContent = item.description;
+        li.textContent = item.titre + " -> " + item.price;
         cartItemsModal.appendChild(li);
       });
   
@@ -107,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Function to calculate and display total amount
     function calculateTotalAmount() {
-      let total = cart.reduce((acc, item) => acc + item.price, 0);
+      let total = tot.reduce((acc, item) => acc + parseFloat(item.price.replace(/,/g, ".")), 0);
       totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
     }
   
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     checkoutButton.addEventListener("click", function () {
       if (cart.length > 0) {
         alert("Thank you for your order!");
-        cart = []; // Clear the cart
+        tot = []; // Clear the cart
         modal.style.display = "none"; // Hide the modal
         modal.classList.remove("modal-fade-in");
       } else {
@@ -152,10 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
           price: itemPrice,
         };
   
-        cart.push(cartItem);
+        tot.push(cartItem);
       });
     });
-  });
+  }});
+
   
   //------------------------------------------------------darkmode
   
