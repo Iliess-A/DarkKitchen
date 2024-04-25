@@ -62,46 +62,47 @@ for(i=0;i<table.length;i++){
   //met le nom et le price apres un add dans un tableau.
   function addOrder(index) {
       return function() {
-          const order = {
+          const order = {                // Assign elements 'title' and 'price' of the first array to the variable 'order'.
               titre: table[index][1],
               price: table[index][3],
           };
-          tot.push(order);
+          tot.push(order);               // Add The variable order which contains elements 'title' and 'price' to the new array predefined.
       };
   }
 
-  add.addEventListener('click', addOrder(i));
+  add.addEventListener('click', addOrder(i));       // Add an event which return the function 'addOrder()' when you click on the button 'add'.
 }
 //'espace'permet d'afficher le contenus du tableau apres chaque add.
-document.addEventListener('keyup', event => {
+
+/*document.addEventListener('keyup', event => {
   if (event.code === 'Space') {
       console.log(tot);
   }
-})
+})*/
 
 //----------------------------------------------------------------------------filtre
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {          // When the page is fully loaded, it will do those next actions :
 
-  const allCheckbox = document.getElementById('all');
-  allCheckbox.checked = true;
-  filterCards();
+  const allCheckbox = document.getElementById('all');               // Get the element checkbox which has the 'all' ID and stock it into the variable 'allCheckbox'
+  allCheckbox.checked = true;                                       // This checkbox will be activated.
+  filterCards();                                                    // Loop into the function 'filterCards()' which filter the cards corresponding to the checkboxes.
 
 });
 
-const checkboxes = document.querySelectorAll('.category-checkbox');
+const checkboxes = document.querySelectorAll('.category-checkbox');       // Stock all the checkboxes into a variable.
 
 //------ Event on checkbox.
 
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
-    uncheckFilter(checkbox);
+checkboxes.forEach(checkbox => {                                        // It will loop on each of those checkboxes
+  checkbox.addEventListener('change', function() {                      // If the checkbox has received changes (has been checked or unchecked), it will do :
+    uncheckFilter(checkbox);                                            // Return the function 'uncheckFilter()'.
   })
 })
 
-checkboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', function() {
-  filterCards();
+checkboxes.forEach(checkbox => {                                        // It will loop on each of those checkboxes
+  checkbox.addEventListener('change', function() {                      // If the checkbox has received changes (has been checked or unchecked), it will do :
+  filterCards();                                                        // Return the function 'filterCards()'.
   });
 });
 
@@ -109,16 +110,16 @@ checkboxes.forEach(checkbox => {
 
 
 function filterCards() {
-    const checkedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.id);
-    const cards = document.querySelectorAll('.carte');
-    cards.forEach(card => {
-      const category = card.querySelector('.categorie').textContent;
-      if (checkedCategories.includes(category) || checkedCategories.includes('all')) {
-        card.style.display = 'flex';
+    const checkedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.id);   // It converts all the nodes with the specific class to an array and excract the id to stock it into a variable.
+    const cards = document.querySelectorAll('.carte');                                                                            // Stock the element with the class 'carte' into a variable.
+    cards.forEach(card => {                                                                                                       // Loop for each cards
+      const category = card.querySelector('.categorie').textContent;                                                              // Select the text of the class element 'categorie" and stock it into a variable ('category')
+      if (checkedCategories.includes(category) || checkedCategories.includes('all')) {                                            // Put a condition : If the string stocked into the 'category' variable contains the id extracted earlier OR if it contains the id 'All' :
+        card.style.display = 'flex';                                                                                              // It displays the cards as flex
         const main = document.querySelector('main');
         main.style.justifyContent = 'space-evenly';
       } else {
-        card.style.display = 'none';
+        card.style.display = 'none';                                                                                              // Or it doesn't display them
       }
     });
 }
@@ -126,18 +127,18 @@ function filterCards() {
 //------ Uncheck specific filters if ALL is checked and vice-versa.
 
 function uncheckFilter(checkbox) {
-  if (checkbox.id==='all' && checkbox.checked) {
+  if (checkbox.id==='all' && checkbox.checked) {                                             // Put a condition : If the ID of the checkbox is 'all' AND if the checkbox is checked :
 
-    checkboxes.forEach (box => {
+    checkboxes.forEach (box => {                                                             // (Loop)For each checkbox :
 
-      if (box !== checkbox) {
-        box.checked = false;
+      if (box !== checkbox) {                                                                // Put a condition : If the checkbox isn't the checkbox with the 'all' ID :
+        box.checked = false;                                                                 // It uncheck itself (box is the checkbox which isn't the one with the 'all' ID)
       }
 
     });
-  } else if (checkbox.id!== 'all' && checkbox.checked) {
-      const uncheck = document.getElementById('all');
-      uncheck.checked = false;
+  } else if (checkbox.id!== 'all' && checkbox.checked) {                                     // Put a condition : If the ID of the checkbox is NOT 'all' AND if the checkbox is checked :
+      const uncheck = document.getElementById('all');                                        // Stock the element checkbox with the 'all' ID into a variable
+      uncheck.checked = false;                                                               // Change the variable property to 'uncheck"
   }
 }
 
