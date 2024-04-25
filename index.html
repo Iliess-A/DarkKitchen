@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/61be3e4cc1.js" crossorigin="anonymous"></script>
+     <!-- Flat Icon -->
+     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <title>DarkFood</title>
 </head>
 <body>
@@ -109,29 +111,50 @@
     </header>
 
     <main>
-        <button id="openCartModal"><i id="cartIcon" class="fi fi-rr-shopping-cart"></i></button>
-    <!-- The Cart Modal -->
-<div id="cartModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 class="cartTitle">Your Cart</h2>
-      <ul id="cartItemsModal"></ul>
-      <p id="totalAmountModal"></p>
-      <button id="checkoutButton">Pay Now</button>
-      <div id="cart">
-        <ol id="cartItems"></ol>
-        <div id="order">
-          <!-- <p class="o" id="orderSummary">Order summary</p> -->
-          <p class="o" id="orderAmount">Order <p id="rightSide">0.00€</p></p>
-          <!-- <p class="o" id="taxes">Taxes <p id="rightSide">0.0€</p></p> -->
-          <p class="o" id="fees">Delivery fees <p id="rightSide">0.0€</p></p>
-          <!-- <p class="o" id="totalAmount">Total: 0.00€</p> -->
-          <p class="o" id="estimatedDelivery">Estimated delivery time: <p id="rightSide">0min</p></p>
+
+        <div class = "filter">
+
+            <input type="checkbox" id="all" class="category-checkbox" />
+            <label for="all"><img src="assets/img/all.svg" /></label>
+
+            <input type="checkbox" id="chicken" class="category-checkbox" />
+            <label for="chicken"><img src="assets/img/chicken.svg" /></label>
+
+            <input type="checkbox" id="beef" class="category-checkbox" />
+            <label for="beef"><img src="assets/img/beef.svg" /></label>
+                    
+            <input type="checkbox" id="cheese" class="category-checkbox" />
+            <label for="cheese"><img src="assets/img/cheese.svg" /></label>
+                    
+            <input type="checkbox" id="vegan" class="category-checkbox" />
+            <label for="vegan"><img src="assets/img/vegan.svg" /></label>
+
+            <input type="checkbox" id="fries" class="category-checkbox" />
+            <label for="fries"><img src="assets/img/fries.svg" /></label>
+
         </div>
-    </div>
-    </div>
-</div>
+        
+
+        <button id="openCartModal"><i id="cartIcon" class="fi fi-rr-shopping-cart"></i></button>
+            <!-- The Cart Modal -->
+        <div id="cartModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="cartTitle">Your Cart</h2>
+            <ul id="cartItemsModal"></ul>
+            <p id="totalAmountModal"></p>
+            <button id="checkoutButton">Pay Now</button>
+            <div id="cart">
+                <ol id="cartItems"></ol>
+                <div id="order">
+                <!-- <p class="o" id="orderSummary">Order summary</p> -->
+                <p class="o" id="orderAmount">Order <p id="rightSide">0.00€</p></p>
+                <p class="o" id="estimatedDelivery">Estimated delivery time: <p id="rightSide">0min</p></p>
+                </div>
+            </div>
+            </div>
+        </div>
     </main>
 
     <footer>
