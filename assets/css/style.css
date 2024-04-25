@@ -128,6 +128,17 @@ body main div.carte p.note {
   margin: 10px 20px;
 }
 
+body main div.carte button {
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: #EF2A39;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 body main div.carte button.add {
   margin-bottom: 10px;
   padding: 3px 10px;
@@ -142,21 +153,13 @@ body main div.carte button.add {
 
 body main div.carte button:hover {
   background-color: #b5101e;
-  padding: 3px 10px;
-  border-radius: 10px;
-  background-color: #EF2A39;
-  border: none;
-  outline: none;
-  padding: 5px 15px;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-body main div.carte button:hover {
+body main div.carte:hover {
   background-color: #b5101e;
 }
 
-body main div.carte button.categorie {
+body main div.carte.categorie {
   position: absolute;
   bottom: 22px;
   bottom: 22px;
@@ -171,17 +174,6 @@ body main div.carte button.categorie {
   padding: 5px 12px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-body main div.carte button:hover {
-  background-color: #b5101e;
-  padding: 5px 12px;
-  color: white;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-body main div.carte button:hover {
-  background-color: #b5101e;
 }
 
 footer {
@@ -203,7 +195,6 @@ footer .contact .title {
 }
 
 footer .contact p {
-  line-height: 5px;
   line-height: 5px;
   font-family: poppins;
   font-weight: 300;
@@ -227,7 +218,7 @@ footer i {
 }
 
 footer .copyright p {
-  line-height: 5px;
+  line-height: 10px;
   font-family: poppins;
   font-weight: 300;
   font-size: 12px;
