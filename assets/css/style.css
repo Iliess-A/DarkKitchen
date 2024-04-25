@@ -13,11 +13,24 @@ body {
 }
 
 .darkmode {
-  background: rgb(46, 1, 63);
+  background: rgb(33, 32, 17);
   color: white;
 }
-.darkmode .svg {
+.darkmode svg {
   fill: white;
+}
+.darkmode img {
+  border-radius: 20px;
+}
+.darkmode .carte {
+  background-color: rgb(48, 47, 43);
+  box-shadow: rgba(135, 20, 0, 0.3) 0px 19px 38px, rgba(51, 51, 51, 0.22) 0px 15px 12px;
+}
+.darkmode footer {
+  background-color: rgb(48, 47, 43);
+}
+.darkmode footer i {
+  color: white;
 }
 
 header {
@@ -28,26 +41,27 @@ header .head {
   justify-content: space-between;
   align-items: flex-start;
 }
-header .head img {
+header .head svg {
   width: 20%;
   margin-top: 5%;
   margin-left: 5%;
 }
 header .head button {
   margin-right: 5%;
-  margin-top: 7%;
+  margin-top: 5%;
   width: 50px;
   height: 50px;
   background: none;
   border: none;
 }
-header .head button.dark-mode-toggle img {
+header .head button.dark-mode-toggle svg {
   width: 50px;
   height: 50px;
 }
 header h1 {
   text-align: center;
   margin-top: 15%;
+  text-transform: uppercase;
   font-family: poppins;
   font-weight: medium;
   font-size: 25px;
@@ -71,7 +85,8 @@ body main div.carte {
   align-items: center;
   border-radius: 7%;
   background-color: white;
-  margin-bottom: 20px;
+  margin: 10% 0;
+  padding: 5% 0;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 body main div.carte h2 {
@@ -87,21 +102,39 @@ body main div.carte p.price {
 }
 body main div.carte p.note {
   position: absolute;
-  bottom: 10px;
+  bottom: 25px;
   left: 10px;
+  margin: 10px 20px;
 }
 body main div.carte button.add {
   margin-bottom: 10px;
-}
-body main div.carte button.categorie {
-  position: absolute;
-  bottom: 10px;
-  right: 5px;
-  margin-bottom: 10px;
-  border-radius: 15px;
+  padding: 3px 10px;
+  border-radius: 10px;
   background-color: #EF2A39;
   border: none;
   outline: none;
+  padding: 5px 15px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body main div.carte button:hover {
+  background-color: #b5101e;
+}
+body main div.carte button.categorie {
+  position: absolute;
+  bottom: 22px;
+  right: 5px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  background-color: #EF2A39;
+  border: none;
+  outline: none;
+  padding: 5px 12px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body main div.carte button:hover {
+  background-color: #b5101e;
 }
 
 footer {
@@ -117,22 +150,31 @@ footer {
 footer .contact .title {
   font-family: lobster;
   font-weight: 600;
-  font-size: 25px;
-}
-footer .contact p {
-  line-height: 10px;
-  font-family: poppins;
-  font-weight: 300;
   font-size: 20px;
 }
-footer img.svg {
-  width: 10%;
+footer .contact p {
+  line-height: 5px;
+  font-family: poppins;
+  font-weight: 300;
+  font-size: 12px;
+}
+footer nav {
+  margin: 0 auto;
+  height: 50px;
+  padding: 0;
+}
+footer svg {
+  height: 75%;
+  fill: black;
+}
+footer i {
+  padding-right: 5px;
 }
 footer .copyright p {
   line-height: 10px;
   font-family: poppins;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 #cartIcon {
@@ -158,4 +200,33 @@ footer .copyright p {
 #openCartModal:hover {
   cursor: pointer;
   background-color: rgba(255, 0, 0, 0.313);
+}
+
+@media screen and (min-width: 1024px) {
+  body header {
+    height: 350px;
+  }
+  body header .head svg {
+    width: 15%;
+    margin: -2% 0 0 2%;
+  }
+  body header h1 {
+    margin-top: 10%;
+    font-size: 30px;
+  }
+  body main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+  }
+  body main div.carte {
+    width: 30%;
+    margin: 5% 0;
+  }
+  body main div.carte:hover {
+    scale: 1.1;
+    transition: 0.5s;
+  }
 }/*# sourceMappingURL=style.css.map */

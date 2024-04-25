@@ -6,7 +6,8 @@ html {
 $backgrd_clr:rgb(255, 147, 155);
 $svg_clr:black;
 //----------------------------------------------------------------clair/dark.
-$backgrd_drk:rgb(46, 1, 63);
+$backgrd_drk:rgb(33, 32, 17);
+$backgrd_drk_card: rgb(48, 47, 43);
 $svg_drk:white;
 //--------------------------------------------------------------------------- css generale
 body {
@@ -19,12 +20,24 @@ body {
     background-repeat: no-repeat;
 }
 .darkmode{
-    
     background: $backgrd_drk;
     color: white;
-    .svg{
+    svg{
         fill: white;
     }
+    img{
+        border-radius: 20px;
+    }
+        .carte{
+            background-color: $backgrd_drk_card;
+            box-shadow: rgba(135,20,0, 0.3) 0px 19px 38px, rgba(51, 51, 51, 0.22) 0px 15px 12px;
+        }
+        footer {
+            background-color: $backgrd_drk_card;
+            i{
+                color: white;
+            }
+        }
 }
 
 header {
@@ -36,23 +49,21 @@ header {
         justify-content: space-between;
         align-items: flex-start;
 
-
-        img {
+        svg {
             width: 20%;
             margin-top: 5%;
             margin-left: 5%;
-            
         }
 
         button {
             margin-right: 5%;
-            margin-top: 7%;
+            margin-top: 5%;
             width: 50px;
             height: 50px;
             background: none;
             border: none;
             &.dark-mode-toggle{
-                img{
+                svg{
                     width: 50px;
                     height: 50px;
                 }
@@ -63,6 +74,7 @@ header {
     h1 {
         text-align: center;
         margin-top: 15%;
+        text-transform: uppercase;
 
         font : {
             family: poppins;
@@ -93,7 +105,8 @@ body {
                 align-items: center;
                 border-radius: 7%;
                 background-color: white;
-                margin-bottom: 20px;
+                margin: 10% 0;
+                padding: 5% 0;
                 box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
                 h2 {
@@ -113,8 +126,9 @@ body {
 
                     &.note {
                         position: absolute;
-                        bottom: 10px;
+                        bottom: 25px;
                         left: 10px;
+                        margin: 10px 20px;
 
                     }
                 }
@@ -122,18 +136,36 @@ body {
                 button {
                     &.add {
                         margin-bottom: 10px;
-                    }
-
-                    &.categorie {
-                        position: absolute;
-                        bottom: 10px;
-                        right: 5px;
-                        margin-bottom: 10px;
-                        border-radius: 15px;
+                        padding: 3px 10px;
+                        border-radius: 10px;
                         background-color: #EF2A39;
                         border: none;
                         outline: none;
+                        padding: 5px 15px;
+                        color: white;
+                        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
                     }
+
+                    &:hover{
+                        background-color: #b5101e;
+                        }
+
+                    &.categorie {
+                        position: absolute;
+                        bottom: 22px;
+                        right: 5px;
+                        margin: 10px 20px;
+                        border-radius: 10px;
+                        background-color: #EF2A39;
+                        border: none;
+                        outline: none;
+                        padding: 5px 12px;
+                        color: white;
+                        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                    }
+                    &:hover{
+                        background-color: #b5101e;
+                        }
                 }
             }
         }
@@ -150,42 +182,43 @@ footer {
     text-align: center;
     min-width: 100%;
     margin-top: 10%;
-
-
     .contact {
         .title {
             font : {
                 family: lobster;
                 weight: 600;
-                size: 25px;
-            }
-        }
-
-        p {
-
-            line-height: 10px;
-
-            font : {
-                family: poppins;
-                weight: 300;
                 size: 20px;
             }
         }
-    }
-
-    img.svg {
-        width: 10%;
-    }
-
-    .copyright {
         p {
-
-            line-height: 10px;
-
+            line-height: 5px;
             font : {
                 family: poppins;
                 weight: 300;
-                size: 15px;
+                size: 12px;
+            }
+        }
+    }
+    nav{
+        margin: 0 auto;
+        height: 50px;
+        padding: 0;
+    }
+    svg {
+        // width: 5%;
+        height: 75%;
+        fill: black;
+        }
+    i{
+        padding-right: 5px;
+    }
+    .copyright {
+        p {
+            line-height: 10px;
+            font : {
+                family: poppins;
+                weight: 300;
+                size: 12px;
             }
         }
     }
@@ -205,7 +238,7 @@ footer {
     width: 50px;
     height: 50px;
     border: none;
-    border-radius: 100px;
+    border-radius: 100px;     
     z-index: -1;
     position: absolute;
     bottom: 0;
@@ -216,4 +249,45 @@ footer {
 #openCartModal:hover {
     cursor: pointer;
     background-color: rgba(255, 0, 0, 0.313);
+}
+
+// -------- RESPONSIVE ------------
+
+@media screen and (min-width: 780px){
+
+}
+
+@media screen and (min-width: 1024px){
+    body{
+        header{
+            height: 350px;
+            .head {
+                svg{
+                    width: 15%;
+                    margin: -2% 0 0 2%;
+                }
+            }
+            h1{
+                margin-top: 10%;
+                font-size: 30px;
+            }
+        }
+        main{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 90%;
+            div{
+                &.carte{
+                    width: 30%;
+                    margin: 5% 0;
+                    &:hover{
+                        scale: 1.1;
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+    }
 }
