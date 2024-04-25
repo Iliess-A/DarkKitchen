@@ -70,7 +70,7 @@ for(i=0;i<table.length;i++){
       };
   }
 
-  div.addEventListener('click', addOrder(i));
+  add.addEventListener('click', addOrder(i));
 }
 //'espace'permet d'afficher le contenus du tableau apres chaque add.
 document.addEventListener('keyup', event => {
