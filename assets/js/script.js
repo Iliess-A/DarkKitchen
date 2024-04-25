@@ -104,9 +104,9 @@ function filterCards() {
     cards.forEach(card => {
       const category = card.querySelector('.categorie').textContent;
       if (checkedCategories.includes(category) || checkedCategories.includes('all')) {
-        card.style.visibility = 'visible';
+        card.style.display = 'flex';
       } else {
-        card.style.visibility = 'collapse';
+        card.style.display = 'none';
       }
     });
 }
