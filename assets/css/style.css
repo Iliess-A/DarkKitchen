@@ -247,16 +247,15 @@ footer .copyright p {
 }
 
 .modal {
+  left: calc(50% - 170px);
   display: none;
   position: fixed;
-  top: 40%;
-  right: 20%;
+  top: 5%;
   z-index: 1;
   width: 350px;
   height: 380px;
   overflow: hidden;
-  transform: translate(0px, -150px);
-  margin-left: 405px;
+  margin-top: 100px;
   background-color: #EF2A39;
   border-radius: 50px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.443);
@@ -344,9 +343,10 @@ footer .copyright p {
 }
 
 #cart {
+  display: flex;
   font-size: 13px;
-  margin-top: 490px;
-  margin-left: 30px;
+  margin-top: 390px;
+  margin-left: -10px;
   max-width: 400px;
   position: fixed;
   cursor: pointer;
@@ -357,6 +357,8 @@ footer .copyright p {
 
 .o {
   display: flex;
+  flex-direction: row;
+  margin-top: 120px;
 }
 
 .cartItems {
@@ -402,4 +404,5 @@ footer .copyright p {
     scale: 1.1;
     transition: 0.5s;
   }
+}/*# sourceMappingURL=style.css.map */
 }/*# sourceMappingURL=style.css.map */
