@@ -1,3 +1,4 @@
+/*------------------------------------------------------------------------ tableau des elements---------------------------------------------------------------------*/
 const table=[
     ['assets/img/burger1.png','Crispy chicken',' tender yet crispy chicken, fresh white cabbage salad, cheddar cheese, fried onions, and an unbelievably good honey-mustard sauce.','14,90€','5/5','chicken'],
     ['assets/img/burger2.png','Royal Cheese','The two slices of oozy cheddar, the 100% beef patty, and the sesame offer you a flavourful, tasty recipe','13,90€','4.6/5','cheese'],
@@ -11,8 +12,9 @@ const table=[
     ['assets/img/frite.png','Fries','Enjoy the crispy, delicious fries as part of a bite.','4,50€','4.7/5','fries'],
 ]
 
+// tableau qui vas contenir la list des elements quón vas acheter.
 let tot=[];
-
+// le dom qui vas 
 for(i=0;i<table.length;i++){
 
     const div =document.createElement('div');
@@ -55,6 +57,9 @@ for(i=0;i<table.length;i++){
     add.className='add';
     div.appendChild(add);
 
+  //------------------------------------------------------------------------ table cart.
+
+    //met le nom et le price apres un add dans un tableau.
     function addOrder(index) {
         return function() {
             const order = {
@@ -67,13 +72,14 @@ for(i=0;i<table.length;i++){
 
     div.addEventListener('click', addOrder(i));
 }
-
-
+//'espace'permet d'afficher le contenus du tableau apres chaque add.
 document.addEventListener('keyup', event => {
     if (event.code === 'Space') {
         console.log(tot);
     }
 })
+
+//----------------------------------------------------------------------------filtre
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -91,6 +97,7 @@ checkboxes.forEach(checkbox => {
     });
 });
 
+
 function filterCards() {
     const checkedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.id);
     const cards = document.querySelectorAll('.carte');
@@ -107,7 +114,7 @@ function filterCards() {
 
 
 
-//----------------------------------------- shopping cart
+//---------------------------------------------------------------------------------- fct shopping cart
 
 document.addEventListener("DOMContentLoaded", function () {
     const cartItemsModal = document.getElementById("cartItemsModal");
@@ -185,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   
-  //------------------------------------------------------darkmode
+  //-------------------------------------------------------------------------------------darkmode
   
   let darkMode = localStorage.getItem('darkMode');
   
