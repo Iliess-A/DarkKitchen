@@ -175,22 +175,6 @@ body main div.carte.categorie {
   color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-body main .filter {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin-bottom: 5%;
-}
-body main .filter input {
-  display: none;
-}
-body main .filter input:checked + label img {
-  filter: invert(100%) sepia(100%) saturate(3.5) hue-rotate(45deg);
-}
-body main .filter img {
-  width: 40%;
-  cursor: pointer;
-}
 
 body main .filter {
   display: flex;
