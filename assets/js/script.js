@@ -57,18 +57,18 @@ for(i=0;i<table.length;i++){
   add.className='add';
   div.appendChild(add);
 
-  //------------------------------------------------------------------------ table cart.
+//------------------------------------------------------------------------ table cart.
 
-    //met le nom et le price apres un add dans un tableau.
-    function addOrder(index) {
-        return function() {
-            const order = {
-                titre: table[index][1],
-                price: table[index][3],
-            };
-            tot.push(order);
-        };
-    }
+  //met le nom et le price apres un add dans un tableau.
+  function addOrder(index) {
+      return function() {
+          const order = {
+              titre: table[index][1],
+              price: table[index][3],
+          };
+          tot.push(order);
+      };
+  }
 
   div.addEventListener('click', addOrder(i));
 }
@@ -79,92 +79,122 @@ document.addEventListener('keyup', event => {
   }
 })
 
-//----------------------------------------- shopping cart
+//----------------------------------------------------------------------------filtre
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  const allCheckbox = document.getElementById('all');
+  allCheckbox.checked = true;
+  filterCards();
+
+});
+
+const checkboxes = document.querySelectorAll('.category-checkbox');
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+  filterCards();
+  });
+});
+
+
+function filterCards() {
+  const checkedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.id);
+  const cards = document.querySelectorAll('.carte');
+  cards.forEach(card => {
+    const category = card.querySelector('.categorie').textContent;
+    if (checkedCategories.includes(category) || checkedCategories.includes('all')) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+
+
+
+//---------------------------------------------------------------------------------- fct shopping cart
 
 document.addEventListener("DOMContentLoaded", function () {
-    const cartItemsModal = document.getElementById("cartItemsModal");
-    const totalAmountModal = document.getElementById("totalAmountModal");
-    const openCartModalButton = document.getElementById("openCartModal");
-    const modal = document.getElementById("cartModal");
-    const closeButton = modal.querySelector(".close");
-    const checkoutButton = modal.querySelector("#checkoutButton");
-    //   const cbButton = document.getElementById("#cb");
-  
-  
-  
-    // Function to display cart items in the modal
-    function displayCartInModal() {
-      // Function to display cart items in the modal
-    function displayCartInModal() {
-      cartItemsModal.innerHTML = "";
-      tot.forEach(function (item) {
-        const li = document.createElement("li");
-        li.textContent = item.titre + " -> " + item.price;
-        cartItemsModal.appendChild(li);
-      });
-  
-      calculateTotalAmount();
-      modal.style.display = "block"; // Display the modal
-    }
-  
-    // Function to calculate and display total amount
-    function calculateTotalAmount() {
-      let total = tot.reduce((acc, item) => acc + parseFloat(item.price.replace(/,/g, ".")), 0);
-      totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
-    }
-  
-    // Event listener for opening the cart modal
-    openCartModalButton.addEventListener("click", displayCartInModal);
-    //   modal.style.display = "block";
-    //   cbButton.addEventListener("click", displayCartInModal);
-    // Event listener for closing the modal
-    closeButton.addEventListener("click", function () {
-      modal.style.display = "none"; // Hide the modal
-    });
-  
-    // Event listener for checkout button
-    checkoutButton.addEventListener("click", function () {
-      if (cart.length > 0) {
-        alert("Thank you for your order!");
-        tot = []; // Clear the cart
-        modal.style.display = "none"; // Hide the modal
-        modal.classList.remove("modal-fade-in");
-      } else {
-        alert("Your cart is empty.");
-      }
-    });
-  
-    // Close the modal when clicking outside of it
-    window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-        modal.classList.remove("modal-fade-in");
-      }
-    });
-  
-    // Mock data and add to cart functionality (for testing)
-    const addToCartButtons = document.querySelectorAll(".addToCartButton");
-    addToCartButtons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        const itemDescription = button.getAttribute("data-description");
-        const itemPrice = parseFloat(button.getAttribute("data-price"));
-  
-        const cartItem = {
-          description: itemDescription,
-          price: itemPrice,
-        };
-  
-        tot.push(cartItem);
-      });
-    });
-  }});
+  const cartItemsModal = document.getElementById("cartItemsModal");
+  const totalAmountModal = document.getElementById("totalAmountModal");
+  const openCartModalButton = document.getElementById("openCartModal");
+  const modal = document.getElementById("cartModal");
+  const closeButton = modal.querySelector(".close");
+  const checkoutButton = modal.querySelector("#checkoutButton");
+  //   const cbButton = document.getElementById("#cb");
 
-  
-  //------------------------------------------------------darkmode
-  
-  let darkMode = localStorage.getItem('darkMode');
-  
-  const darkModeToggle = document.body.querySelector('#dark-mode-toggle');
+  // Function to display cart items in the modal
+  function displayCartInModal() {
+    cartItemsModal.innerHTML = "";
+    tot.forEach(function (item) {
+      const li = document.createElement("li");
+      li.textContent = item.titre + " -> " + item.price;
+      cartItemsModal.appendChild(li);
+    });
+
+    calculateTotalAmount();
+    modal.style.display = "block"; // Display the modal
+  }
+
+  // Function to calculate and display total amount
+  function calculateTotalAmount() {
+    let total = tot.reduce((acc, item) => acc + parseFloat(item.price.replace(/,/g, ".")), 0);
+    totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
+  }
+
+  // Event listener for opening the cart modal
+  openCartModalButton.addEventListener("click", displayCartInModal);
+  //   modal.style.display = "block";
+  //   cbButton.addEventListener("click", displayCartInModal);
+  // Event listener for closing the modal
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none"; // Hide the modal
+  });
+
+  // Event listener for checkout button
+  checkoutButton.addEventListener("click", function () {
+    if (cart.length > 0) {
+      alert("Thank you for your order!");
+      tot = []; // Clear the cart
+      modal.style.display = "none"; // Hide the modal
+      modal.classList.remove("modal-fade-in");
+    } else {
+      alert("Your cart is empty.");
+    }
+  });
+
+  // Close the modal when clicking outside of it
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      modal.classList.remove("modal-fade-in");
+    }
+  });
+
+  // Mock data and add to cart functionality (for testing)
+  const addToCartButtons = document.querySelectorAll(".addToCartButton");
+  addToCartButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const itemDescription = button.getAttribute("data-description");
+      const itemPrice = parseFloat(button.getAttribute("data-price"));
+
+      const cartItem = {
+        description: itemDescription,
+        price: itemPrice,
+      };
+
+      tot.push(cartItem);
+    });
+  });
+});
+
+//-------------------------------------------------------------------------------------darkmode
+
+let darkMode = localStorage.getItem('darkMode');
+
+const darkModeToggle = document.body.querySelector('#dark-mode-toggle');
 
 const activeDarkMode = ()=>{
   document.body.classList.add('darkmode');
