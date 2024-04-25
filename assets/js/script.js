@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for checkout button
   checkoutButton.addEventListener("click", function () {
-    if (cart.length > 0) {
+    if (tot.length > 0) {
       alert("Thank you for your order!");
       tot = []; // Clear the cart
       modal.style.display = "none"; // Hide the modal
