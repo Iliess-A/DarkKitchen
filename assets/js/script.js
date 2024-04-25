@@ -105,6 +105,8 @@ function filterCards() {
       const category = card.querySelector('.categorie').textContent;
       if (checkedCategories.includes(category) || checkedCategories.includes('all')) {
         card.style.display = 'flex';
+        const main = document.querySelector('main');
+        main.style.justifyContent = 'space-evenly';
       } else {
         card.style.display = 'none';
       }
