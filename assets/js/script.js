@@ -134,6 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cartItemsModal.appendChild(li);
     });
 
+  //only show one ligne per title item and the quantity fo it
+   
+
     calculateTotalAmount();
     modal.style.display = "block"; // Display the modal
   }
