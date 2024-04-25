@@ -87,6 +87,8 @@ body main div.carte {
   background-color: white;
   margin: 10% 0;
   padding: 5% 0;
+  margin: 10% 0;
+  padding: 5% 0;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 body main div.carte h2 {
@@ -103,7 +105,9 @@ body main div.carte p.price {
 body main div.carte p.note {
   position: absolute;
   bottom: 25px;
+  bottom: 25px;
   left: 10px;
+  margin: 10px 20px;
   margin: 10px 20px;
 }
 body main div.carte button.add {
@@ -119,16 +123,36 @@ body main div.carte button.add {
 }
 body main div.carte button:hover {
   background-color: #b5101e;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background-color: #EF2A39;
+  border: none;
+  outline: none;
+  padding: 5px 15px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body main div.carte button:hover {
+  background-color: #b5101e;
 }
 body main div.carte button.categorie {
   position: absolute;
   bottom: 22px;
+  bottom: 22px;
   right: 5px;
+  margin: 10px 20px;
+  border-radius: 10px;
   margin: 10px 20px;
   border-radius: 10px;
   background-color: #EF2A39;
   border: none;
   outline: none;
+  padding: 5px 12px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+body main div.carte button:hover {
+  background-color: #b5101e;
   padding: 5px 12px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -151,11 +175,14 @@ footer .contact .title {
   font-family: lobster;
   font-weight: 600;
   font-size: 20px;
+  font-size: 20px;
 }
 footer .contact p {
   line-height: 5px;
+  line-height: 5px;
   font-family: poppins;
   font-weight: 300;
+  font-size: 12px;
   font-size: 12px;
 }
 footer nav {
@@ -171,9 +198,10 @@ footer i {
   padding-right: 5px;
 }
 footer .copyright p {
-  line-height: 10px;
+  line-height: 5px;
   font-family: poppins;
   font-weight: 300;
+  font-size: 12px;
   font-size: 12px;
 }
 

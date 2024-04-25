@@ -107,6 +107,8 @@ body {
                 background-color: white;
                 margin: 10% 0;
                 padding: 5% 0;
+                margin: 10% 0;
+                padding: 5% 0;
                 box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
                 h2 {
@@ -127,7 +129,9 @@ body {
                     &.note {
                         position: absolute;
                         bottom: 25px;
+                        bottom: 25px;
                         left: 10px;
+                        margin: 10px 20px;
                         margin: 10px 20px;
 
                     }
@@ -149,11 +153,27 @@ body {
                     &:hover{
                         background-color: #b5101e;
                         }
+                        padding: 3px 10px;
+                        border-radius: 10px;
+                        background-color: #EF2A39;
+                        border: none;
+                        outline: none;
+                        padding: 5px 15px;
+                        color: white;
+                        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                    }
+
+                    &:hover{
+                        background-color: #b5101e;
+                        }
 
                     &.categorie {
                         position: absolute;
                         bottom: 22px;
+                        bottom: 22px;
                         right: 5px;
+                        margin: 10px 20px;
+                        border-radius: 10px;
                         margin: 10px 20px;
                         border-radius: 10px;
                         background-color: #EF2A39;
@@ -188,6 +208,7 @@ footer {
                 family: lobster;
                 weight: 600;
                 size: 20px;
+                size: 20px;
             }
         }
         p {
@@ -195,6 +216,7 @@ footer {
             font : {
                 family: poppins;
                 weight: 300;
+                size: 12px;
                 size: 12px;
             }
         }
@@ -218,6 +240,7 @@ footer {
             font : {
                 family: poppins;
                 weight: 300;
+                size: 12px;
                 size: 12px;
             }
         }
