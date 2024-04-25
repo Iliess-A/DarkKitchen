@@ -91,11 +91,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const checkboxes = document.querySelectorAll('.category-checkbox');
 
+//------ Event on checkbox.
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    uncheckFilter(checkbox);
+  })
+})
+
 checkboxes.forEach(checkbox => {
   checkbox.addEventListener('change', function() {
   filterCards();
   });
 });
+
+//------ Filter the cards
 
 
 function filterCards() {
@@ -111,6 +121,23 @@ function filterCards() {
   });
 }
 
+//------ Uncheck specific filters if ALL is checked and vice-versa.
+
+function uncheckFilter(checkbox) {
+  if (checkbox.id==='all' && checkbox.checked) {
+
+    checkboxes.forEach (box => {
+
+      if (box !== checkbox) {
+        box.checked = false;
+      }
+
+    });
+  } else if (checkbox.id!== 'all' && checkbox.checked) {
+      const uncheck = document.getElementById('all');
+      uncheck.checked = false;
+  }
+}
 
 
 
