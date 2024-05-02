@@ -343,15 +343,15 @@ footer .copyright p {
 #cartModal #order {
   position: relatif;
 }
-#cartModal #order #orderAmount {
-  position: relative;
-}
 #cartModal #order ul {
   height: 200%;
   position: fixed;
   list-style-type: none;
   padding-left: 5px;
   overflow-y: scroll;
+}
+#cartModal #order .o {
+  margin-top: 45%;
 }
 
 /* Additional styles for fade-in animation class */

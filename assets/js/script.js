@@ -178,19 +178,20 @@ document.addEventListener("DOMContentLoaded", function () {
       //rajout de bouton plus 
       const add_qt = document.createElement('button');
       add_qt.textContent="+";
-      add_qt.id ='add_quantiter';
+      add_qt.className ='add_quantity';
       //rajout de bouton moins
       const red_qt = document.createElement('button');
       red_qt.textContent="-";
-      red_qt.id ='red_quantiter';
+      red_qt.className='red_quantity';
 
       add_qt.addEventListener('click',event=>{
-
+        
         item.quantity ++;
         displayCartInModal();
       })
 
       red_qt.addEventListener('click',event=>{
+        
         item.quantity--;
         if(item.quantity<1){
           tot.splice(item,1);
@@ -224,15 +225,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for opening the cart modal
   openCartModalButton.addEventListener("click", displayCartInModal);
-  // Event listener for closing the modal
-  closeButton.addEventListener("click",  (event)=> {
+  // Event listener for closing the modal.
+  closeButton.addEventListener("click",  ()=> {
     modal.style.display = "none"; // Hide the modal
   });
   document.addEventListener('click',event =>{
     //l'icon posait probleme j'ai du l'utiliser dans la condition
     const icon =document.getElementById('cartIcon');
+    const btn_add = document.getElementsByClassName('add_quantity');
+    const btn_red = document.getElementsByClassName('red_quantity');
     //la condition fait que si je click en dehors du shoppingcart ce dernier se ferme.
-    if(!modal.contains(event.target) && event.target !== openCartModalButton && event.target !==icon ){
+    if(!modal.contains(event.target) && event.target !== openCartModalButton && event.target !== icon && !event.target.classList.contains('add_quantity') && !event.target.classList.contains('red_quantity')){
       modal.style.display = "none";
     }
   });
