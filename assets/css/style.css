@@ -337,6 +337,23 @@ footer .copyright p {
     opacity: 1;
   }
 }
+#cartModal {
+  height: 50%;
+}
+#cartModal #order {
+  position: relatif;
+}
+#cartModal #order #orderAmount {
+  position: relative;
+}
+#cartModal #order ul {
+  height: 200%;
+  position: fixed;
+  list-style-type: none;
+  padding-left: 5px;
+  overflow-y: scroll;
+}
+
 /* Additional styles for fade-in animation class */
 .modal-fade-in .modal-content {
   animation: fadeIn 0.3s ease;
@@ -404,5 +421,4 @@ footer .copyright p {
     scale: 1.1;
     transition: 0.5s;
   }
-}/*# sourceMappingURL=style.css.map */
 }/*# sourceMappingURL=style.css.map */

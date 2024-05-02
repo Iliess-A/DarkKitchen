@@ -14,7 +14,7 @@ const table=[
 
 // tableau qui vas contenir la list des elements quón vas acheter.
 let tot=[];
-// le dom qui vas 
+// le dom qui vas generer les cartes.
 for(i=0;i<table.length;i++){
 
   const div =document.createElement('div');
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cartItemsModal.innerHTML = "";
     tot.forEach(function (item) {
       const li = document.createElement("li");
-      li.textContent = item.titre + " -> " +  item.subtotal.toFixed(2) +'€';
+      li.textContent = item.titre + " -> " +  item.subtotal.toFixed(2) +'€'+' QT '+item.quantity+' ';
       cartItemsModal.appendChild(li);
 
       //rajout de bouton plus 
@@ -205,7 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
     calculateTotalAmount();
-    modal.style.display = "block"; // Display the modal
+    let display =modal.style.display ; // Display the modal
+    if(display === 'block'){
+      modal.style.display='none';
+    }else{
+      modal.style.display='block';
+    }
   }
 
   // Function to calculate and display total amount
@@ -219,11 +224,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for opening the cart modal
   openCartModalButton.addEventListener("click", displayCartInModal);
-  //   modal.style.display = "block";
-  //   cbButton.addEventListener("click", displayCartInModal);
   // Event listener for closing the modal
-  closeButton.addEventListener("click", function () {
+  closeButton.addEventListener("click",  (event)=> {
     modal.style.display = "none"; // Hide the modal
+  });
+  document.addEventListener('click',event =>{
+    //l'icon posait probleme j'ai du l'utiliser dans la condition
+    const icon =document.getElementById('cartIcon');
+    //la condition fait que si je click en dehors du shoppingcart ce dernier se ferme.
+    if(!modal.contains(event.target) && event.target !== openCartModalButton && event.target !==icon ){
+      modal.style.display = "none";
+    }
   });
 
   // Event listener for checkout button
@@ -235,14 +246,6 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.classList.remove("modal-fade-in");
     } else {
       alert("Your cart is empty.");
-    }
-  });
-
-  // Close the modal when clicking outside of it
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-      modal.classList.remove("modal-fade-in");
     }
   });
 
