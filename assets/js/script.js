@@ -1,15 +1,15 @@
 /*------------------------------------------------------------------------ tableau des elements---------------------------------------------------------------------*/
 const table=[
-  ['assets/img/burger1.png','Crispy chicken',' tender yet crispy chicken, fresh white cabbage salad, cheddar cheese, fried onions, and an unbelievably good honey-mustard sauce.','14,90€','5/5','chicken'],
-  ['assets/img/burger2.png','Royal Cheese','The two slices of oozy cheddar, the 100% beef patty, and the sesame offer you a flavourful, tasty recipe','13,90€','4.6/5','cheese'],
-  ['assets/img/burger3.png','Royal Crispy Bacon','Give in to the temptation of the Royal Crispy Bacon with its crispy bacon, 100% beef patty, melted cheddar, and special bacon sauce, served on a soft sesame-seed bun.','12,90€','4.5/5','beef'],
-  ['assets/img/burger4.png','Whopper Meal','A flame-grilled beef patty, topped with tomatoes, fresh cut lettuce, mayo, pickles, a swirl of ketchup, and sliced onions on a soft sesame seed bun.','11,90€','5/5','beef'],
-  ['assets/img/burger5.png','double cheese burger','2 100% beef patties, 2 slices of melted cheddar, 2 slices of pickle, 2 sauces, ketchup, and mustard','15,90€','4.7/5','cheese'],
-  ['assets/img/burger6.png','Vegan Royale','A crispy vegan patty topped with iceberg lettuce, vegan mayo and crowned with a toasted sesame seed bun.','12,90€','4.7/5','vegan'],
-  ['assets/img/burger7.png','West Coast','Angus steak, caramelized onions, fried onions, pickles, salad, double cheddar, West Coast sauce.','16,90€','5/5','beef'],
-  ['assets/img/burger8.png','Chicken Royale','Tasty chicken wrapped in a special crisp coating, topped with iceberg lettuce, creamy mayo and crowned with a toasted sesame seed bun.','14,90€','4.3/5','chicken'],
-  ['assets/img/burger9.png','Veggie Deluxe','The Veggie Deluxe: a breaded veggie fillet based on skimmed milk, with tasty veggies like cucumber, onion, tomatoes, and lettuce. A perfect match for the coming hot weather.','12,90€','4.5/5','vegan'],
-  ['assets/img/frite.png','Fries','Enjoy the crispy, delicious fries as part of a bite.','4,50€','4.7/5','fries'],
+  ['assets/img/burger1.png','Crispy chicken',' tender yet crispy chicken, fresh white cabbage salad, cheddar cheese, fried onions, and an unbelievably good honey-mustard sauce.',14.90,'5/5','chicken'],
+  ['assets/img/burger2.png','Royal Cheese','The two slices of oozy cheddar, the 100% beef patty, and the sesame offer you a flavourful, tasty recipe',13.90,'4.6/5','cheese'],
+  ['assets/img/burger3.png','Royal Crispy Bacon','Give in to the temptation of the Royal Crispy Bacon with its crispy bacon, 100% beef patty, melted cheddar, and special bacon sauce, served on a soft sesame-seed bun.',12.90,'4.5/5','beef'],
+  ['assets/img/burger4.png','Whopper Meal','A flame-grilled beef patty, topped with tomatoes, fresh cut lettuce, mayo, pickles, a swirl of ketchup, and sliced onions on a soft sesame seed bun.',11.90,'5/5','beef'],
+  ['assets/img/burger5.png','double cheese burger','2 100% beef patties, 2 slices of melted cheddar, 2 slices of pickle, 2 sauces, ketchup, and mustard',15.90,'4.7/5','cheese'],
+  ['assets/img/burger6.png','Vegan Royale','A crispy vegan patty topped with iceberg lettuce, vegan mayo and crowned with a toasted sesame seed bun.',12.90,'4.7/5','vegan'],
+  ['assets/img/burger7.png','West Coast','Angus steak, caramelized onions, fried onions, pickles, salad, double cheddar, West Coast sauce.',16.90,'5/5','beef'],
+  ['assets/img/burger8.png','Chicken Royale','Tasty chicken wrapped in a special crisp coating, topped with iceberg lettuce, creamy mayo and crowned with a toasted sesame seed bun.',14.90,'4.3/5','chicken'],
+  ['assets/img/burger9.png','Veggie Deluxe','The Veggie Deluxe: a breaded veggie fillet based on skimmed milk, with tasty veggies like cucumber, onion, tomatoes, and lettuce. A perfect match for the coming hot weather.',12.90,'4.5/5','vegan'],
+  ['assets/img/frite.png','Fries','Enjoy the crispy, delicious fries as part of a bite.',4.50,'4.7/5','fries'],
 ]
 
 // tableau qui vas contenir la list des elements quón vas acheter.
@@ -38,7 +38,7 @@ for(i=0;i<table.length;i++){
   div.appendChild(description);
 
   let price= document.createElement('p');
-  price.textContent=table[i][3];
+  price.textContent=table[i][3].toFixed(2)+'€';
   price.className='price';
   div.appendChild(price);
 
@@ -67,7 +67,7 @@ for(i=0;i<table.length;i++){
           price: table[index][3],
           quantity: 1, // Ajoutez une propriété de quantité
           get subtotal() {
-            return this.price * this.quantity; // Ajoutez une propriété de sous-total
+            return parseFloat(this.price * this.quantity,2); // Ajoutez une propriété de sous-total
         },
       };
       // Vérifiez si l'ordre existe déjà dans le tableau
@@ -86,11 +86,11 @@ for(i=0;i<table.length;i++){
 }
 //'espace'permet d'afficher le contenus du tableau apres chaque add.
 
-/*document.addEventListener('keyup', event => {
+document.addEventListener('keyup', event => {
   if (event.code === 'Space') {
       console.log(tot);
   }
-})*/
+})
 
 //----------------------------------------------------------------------------filtre
 
@@ -165,25 +165,56 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("cartModal");
   const closeButton = modal.querySelector(".close");
   const checkoutButton = modal.querySelector("#checkoutButton");
-  //   const cbButton = document.getElementById("#cb");
+ 
 
   // Function to display cart items in the modal
   function displayCartInModal() {
     cartItemsModal.innerHTML = "";
     tot.forEach(function (item) {
       const li = document.createElement("li");
-      li.textContent = item.titre + " -> " +  item.subtotal;
+      li.textContent = item.titre + " -> " +  item.subtotal.toFixed(2) +'€';
       cartItemsModal.appendChild(li);
-    });
 
+      //rajout de bouton plus 
+      const add_qt = document.createElement('button');
+      add_qt.textContent="+";
+      add_qt.id ='add_quantiter';
+      //rajout de bouton moins
+      const red_qt = document.createElement('button');
+      red_qt.textContent="-";
+      red_qt.id ='red_quantiter';
+
+      add_qt.addEventListener('click',event=>{
+
+        item.quantity ++;
+        displayCartInModal();
+      })
+
+      red_qt.addEventListener('click',event=>{
+        item.quantity--;
+        if(item.quantity<1){
+          tot.splice(item,1);
+          displayCartInModal();
+        }else{
+          displayCartInModal();
+        }
+      })
+
+      li.appendChild(add_qt);
+      li.appendChild(red_qt);
+
+    });
     calculateTotalAmount();
     modal.style.display = "block"; // Display the modal
   }
 
   // Function to calculate and display total amount
   function calculateTotalAmount() {
-    let total = tot.reduce((acc, item) => acc + parseFloat(item.price.replace(/,/g, ".")), 0);
-totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
+    let total = 0;
+    tot.forEach (item=>{
+      total=total + item.subtotal;
+    });
+  totalAmountModal.textContent = "Total: " + total.toFixed(2) + "€";
   }
 
   // Event listener for opening the cart modal
