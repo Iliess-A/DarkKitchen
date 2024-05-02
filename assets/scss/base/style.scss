@@ -37,6 +37,9 @@ body {
     .carte {
         background-color: $backgrd_drk_card;
         box-shadow: rgba(135, 20, 0, 0.3) 0px 19px 38px, rgba(51, 51, 51, 0.22) 0px 15px 12px;
+        &:hover{
+            background-color: $backgrd_drk_card;
+        }
     }
 
     footer {
@@ -59,7 +62,7 @@ header {
 
         svg {
             width: 20%;
-            margin-top: 5%;
+            margin-top: -10%;
             margin-left: 5%;
         }
 
@@ -73,8 +76,8 @@ header {
 
             &.dark-mode-toggle {
                 svg {
-                    width: 50px;
-                    height: 50px;
+                    width: 40px;
+                    height: 40px;
                 }
             }
         }
@@ -82,8 +85,9 @@ header {
 
     h1 {
         text-align: center;
-        margin-top: 15%;
+        margin-top: -5%;
         text-transform: uppercase;
+        text-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
         font : {
             family: poppins;
@@ -156,12 +160,13 @@ body {
                         border: none;
                         outline: none;
                         padding: 5px 15px;
-                        color: white;
+                        // color: white;
                         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
                     }
 
                     &:hover {
                         background-color: #b5101e;
+                        color: #FFEFBA;
                     }
 
                     padding: 3px 10px;
@@ -175,23 +180,22 @@ body {
                 }
 
                 &:hover {
-                    background-color: #b5101e;
+                    background-color: hsla(355, 63%, 43%, 0.086);
+                    color: #FFEFBA;
+                    // color: #ffcebe;
+                    // color: rgb(249, 249, 235);
                 }
 
-                &.categorie {
+                .categorie {
                     position: absolute;
-                    bottom: 22px;
                     bottom: 22px;
                     right: 5px;
                     margin: 10px 20px;
+                    padding: 5px 12px;
                     border-radius: 10px;
-                    margin: 10px 20px;
-                    border-radius: 10px;
-                    background-color: #EF2A39;
                     border: none;
                     outline: none;
-                    padding: 5px 12px;
-                    color: white;
+                    background-color: #EF2A39;
                     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
                 }
             }
@@ -199,22 +203,27 @@ body {
 
         .filter {
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            margin-bottom: 5%;
+            justify-content: space-around;
+            width: 80%;
+            margin: 7% auto 5%;
+
+            label{
+                text-align: center;
+            }
 
             input {
                 display: none;
 
-                &:checked+label {
-                    img {
-                        filter: invert(100%) sepia(100%) saturate(3.5) hue-rotate(45deg);
+                &:checked + label {
+                    img{
+                        // filter: invert(100%) sepia(100%) saturate(0.5) hue-rotate(45deg);
+                        filter: invert(400%) sepia(150%) saturate(100%) hue-rotate(340deg) brightness(500%) contrast(200%);
                     }
                 }
             }
 
             img {
-                width: 40%;
+                width: 50%;
                 cursor: pointer;
             }
         }
@@ -255,9 +264,7 @@ footer {
     }
 
     nav {
-        margin: 0 auto;
         height: 50px;
-        padding: 0;
     }
 
     svg {
@@ -459,13 +466,19 @@ footer {
             .head {
                 svg {
                     width: 15%;
-                    margin: -2% 0 0 2%;
+                    margin: 0 0 0 2%;
+                }
+                .dark-mode-toggle {
+                    svg {
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
             }
 
             h1 {
-                margin-top: 10%;
-                font-size: 30px;
+                margin-top: 2%;
+                font-size: 50px;
             }
         }
 
@@ -475,6 +488,12 @@ footer {
             flex-wrap: wrap;
             justify-content: space-between;
             width: 90%;
+
+            .filter{
+                svg{
+                    width: 25%;
+                }
+            }
 
             div {
                 &.carte {
