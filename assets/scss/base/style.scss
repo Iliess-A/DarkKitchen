@@ -418,9 +418,10 @@ footer {
     }
 }
 #cartModal{
-    height: 50%;
+    
     #order{
         position: relatif;
+        height: 80%;
         
         ul{
             height: 200%;
@@ -451,6 +452,7 @@ footer {
     z-index: 1;
     color: rgb(255, 255, 255);
     border-radius: 30px;
+    height: 400px;
 
 }
 
