@@ -234,8 +234,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const icon =document.getElementById('cartIcon');
     const btn_add = document.getElementsByClassName('add_quantity');
     const btn_red = document.getElementsByClassName('red_quantity');
+    const carte =document.getElementById('cart');
     //la condition fait que si je click en dehors du shoppingcart ce dernier se ferme.
-    if(!modal.contains(event.target) && event.target !== openCartModalButton && event.target !== icon && !event.target.classList.contains('add_quantity') && !event.target.classList.contains('red_quantity')){
+    if(!modal.contains(event.target) && event.target !== openCartModalButton && event.target !== icon && event.target !== carte ){
       modal.style.display = "none";
     }
   });
